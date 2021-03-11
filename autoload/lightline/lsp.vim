@@ -9,7 +9,7 @@ let s:warning_enabled = get(g:, 'lightline#lsp#warning_enabled', 1)
 let s:information_enabled = get(g:, 'lightline#lsp#information_enabled', 1)
 let s:hint_enabled = get(g:, 'lightline#lsp#hint_enabled', 1)
 
-function! lightline#lsp#ok()
+function! lightline#lsp#ok() abort
   if lsp#get_server_status() == ''
     return ''
   endif
@@ -18,19 +18,19 @@ function! lightline#lsp#ok()
 
   let l:total = 0
   if s:error_enabled
-    l:total += counts.error
+    let l:total += counts.error
   endif
 
   if s:warning_enabled
-    l:total += counts.warning
+    let l:total += counts.warning
   endif
 
   if s:information_enabled
-    l:total += counts.information
+    let l:total += counts.information
   endif
 
   if s:hint_enabled
-    l:total += counts.hint
+    let l:total += counts.hint
   endif
 
   if total == 0
@@ -40,7 +40,7 @@ function! lightline#lsp#ok()
   endif
 endfunction
 
-function! lightline#lsp#error()
+function! lightline#lsp#error() abort
   if lsp#get_server_status() == '' || ! s:error_enabled
     return ''
   endif
@@ -53,7 +53,7 @@ function! lightline#lsp#error()
   end
 endfunction
 
-function! lightline#lsp#warning()
+function! lightline#lsp#warning() abort
   if lsp#get_server_status() == '' || ! s:warning_enabled
     return ''
   endif
@@ -66,7 +66,7 @@ function! lightline#lsp#warning()
   end
 endfunction
 
-function! lightline#lsp#information()
+function! lightline#lsp#information() abort
   if lsp#get_server_status() == '' || ! s:information_enabled
     return ''
   endif
@@ -79,7 +79,7 @@ function! lightline#lsp#information()
   end
 endfunction
 
-function! lightline#lsp#hint()
+function! lightline#lsp#hint() abort
   if lsp#get_server_status() == '' || ! s:hint_enabled
     return ''
   endif
