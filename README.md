@@ -72,19 +72,21 @@ let g:lightline = {
 ```
 
 ## Customize
-You can disable the specific level of diagnostics by:
+### Disable a diagnostic level
+You can disable the specific level of diagnostics by them:
 - `g:lightline#lsp#error_enabled`
 - `g:lightline#lsp#warning_enabled`
 - `g:lightline#lsp#information_enabled`
 - `g:lightline#lsp#hint_enabled`
 
-like:
+Like this:
 ```vim
 let g:lightline#lsp#information_enabled = 0
 let g:lightline#lsp#hint_enabled = 0
 ```
 
-And you can customize the symbol of each indicators:
+### Change the symbols
+You can customize the symbol of each indicators too.
 - `g:lightline#lsp#ok_symbol`  
 The string to display when there are no diagnostics.  
 The default value is `OK`.
