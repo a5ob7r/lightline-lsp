@@ -43,3 +43,67 @@ or in TOML:
 [[plugins]]
 repo = 'watcol/lightline-lsp'
 ```
+
+## Usage
+Just register the indicators with lightline.vim, like:
+```vim
+let g:lightline = {
+\   'active': {
+\     'left': ...,
+\     'right': [..., ['lsp-ok', 'lsp-error', 'lsp-warning', 'lsp-information', 'lsp-hint']]
+\   },
+\   ...,
+\   'component_expand': {
+\     'lsp-ok': 'lightline#lsp#ok',
+\     'lsp-error': 'lightline#lsp#error',
+\     'lsp-warning': 'lightline#lsp#warning',
+\     'lsp-information': 'lightline#lsp#information',
+\     'lsp-hint': 'lightline#lsp#hint'
+\   },
+\   'component_type': {
+\     'lsp-ok': 'right',
+\     'lsp-error': 'error',
+\     'lsp-warning': 'warning',
+\     'lsp-information': 'right',
+\     'lsp-hint': 'middle',
+\   },
+\   ...
+\ }
+```
+
+## Customize
+You can disable the specific level of diagnostics by:
+- `g:lightline#lsp#error_enabled`
+- `g:lightline#lsp#warning_enabled`
+- `g:lightline#lsp#information_enabled`
+- `g:lightline#lsp#hint_enabled`
+like:
+```vim
+let g:lightline#lsp#information_enabled = 0
+let g:lightline#lsp#hint_enabled = 0
+```
+
+And you can customize the symbol of each indicators:
+- `g:lightline#lsp#ok_symbol`  
+The string to display when there are no diagnostics.  
+default: `OK`
+- `g:lightline#lsp#error_symbol`  
+The string to display when there are some errors.  
+If this variable is not specified, reads `g:lsp_diagnostics_signs_error`.  
+And this is not specified as well, use `E:`.
+- `g:lightline#lsp#warning_symbol`  
+The string to display when there are some warnings.  
+If this variable is not specified, reads `g:lsp_diagnostics_signs_warning`.  
+And this is not specified as well, use `W:`.
+- `g:lightline#lsp#information_symbol`  
+The string to display when there are some informations.  
+If this variable is not specified, reads `g:lsp_diagnostics_signs_information`.  
+And this is not specified as well, use `I:`.
+- `g:lightline#lsp#hint_symbol`  
+The string to display when there are some hints.  
+If this variable is not specified, reads `g:lsp_diagnostics_signs_hint`.  
+And this is not specified as well, use `H:`.
+
+Toatally, indicator symbol should be equal to `g:lsp_diagnostics_signs_*`,
+so They should not be specified, expect `g:lightline#lsp#ok_symbol`.
+Use `g:lsp_diagnostics_signs_*` instead.
