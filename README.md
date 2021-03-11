@@ -86,7 +86,7 @@ let g:lightline#lsp#hint_enabled = 0
 And you can customize the symbol of each indicators:
 - `g:lightline#lsp#ok_symbol`  
 The string to display when there are no diagnostics.  
-default: `OK`
+The default value is `OK`.
 - `g:lightline#lsp#error_symbol`  
 The string to display when there are some errors.  
 If this variable is not specified, reads `g:lsp_diagnostics_signs_error`.  
