@@ -77,6 +77,7 @@ You can disable the specific level of diagnostics by:
 - `g:lightline#lsp#warning_enabled`
 - `g:lightline#lsp#information_enabled`
 - `g:lightline#lsp#hint_enabled`
+
 like:
 ```vim
 let g:lightline#lsp#information_enabled = 0
