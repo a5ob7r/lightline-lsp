@@ -1,1 +1,2 @@
-# [WIP] lightline-lsp
+# lightline-lsp
+Vim-lsp indicator for lightline.vim.
