@@ -107,6 +107,6 @@ The string to display when there are some hints.
 If this variable is not specified, reads `g:lsp_diagnostics_signs_hint`.  
 And this is not specified as well, use `H:`.
 
-Toatally, indicator symbol should be equal to `g:lsp_diagnostics_signs_*`,
+Totally, indicator symbol should be equal to `g:lsp_diagnostics_signs_*`,
 so They should not be specified, expect `g:lightline#lsp#ok_symbol`.
 Use `g:lsp_diagnostics_signs_*` instead.
