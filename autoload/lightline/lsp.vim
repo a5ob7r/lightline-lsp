@@ -45,11 +45,11 @@ function! lightline#lsp#error() abort
     return ''
   endif
 
-  let count = lsp#get_buffer_diagnostics_counts().error
-  if count == 0
+  let l:count = lsp#get_buffer_diagnostics_counts().error
+  if l:count == 0
     return ''
   else
-    return s:error_symbol . count
+    return s:error_symbol . l:count
   end
 endfunction
 
@@ -58,11 +58,11 @@ function! lightline#lsp#warning() abort
     return ''
   endif
 
-  let count = lsp#get_buffer_diagnostics_counts().warning
-  if count == 0
+  let l:count = lsp#get_buffer_diagnostics_counts().warning
+  if l:count == 0
     return ''
   else
-    return s:warning_symbol . count
+    return s:warning_symbol . l:count
   end
 endfunction
 
@@ -71,11 +71,11 @@ function! lightline#lsp#information() abort
     return ''
   endif
 
-  let count = lsp#get_buffer_diagnostics_counts().information
-  if count == 0
+  let l:count = lsp#get_buffer_diagnostics_counts().information
+  if l:count == 0
     return ''
   else
-    return s:information_symbol . count
+    return s:information_symbol . l:count
   end
 endfunction
 
@@ -84,11 +84,10 @@ function! lightline#lsp#hint() abort
     return ''
   endif
 
-  let count = lsp#get_buffer_diagnostics_counts().hint
-  let sign = g:lsp_diagnostics_signs_hint.text
-  if count == 0
+  let l:count = lsp#get_buffer_diagnostics_counts().hint
+  if l:count == 0
     return ''
   else
-    return s:hint_symbol . count
+    return s:hint_symbol . l:count
   end
 endfunction
