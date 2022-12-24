@@ -9,8 +9,12 @@ let s:warning_enabled = get(g:, 'lightline#lsp#warning_enabled', 1)
 let s:information_enabled = get(g:, 'lightline#lsp#information_enabled', 1)
 let s:hint_enabled = get(g:, 'lightline#lsp#hint_enabled', 1)
 
+function! s:vim_lsp_enabled_on_buffer() abort
+  return get(b:, 'lightline_lsp_lsp_buffer_enabled', 0)
+endfunction
+
 function! lightline#lsp#ok() abort
-  if lsp#get_server_status() == ''
+  if !s:vim_lsp_enabled_on_buffer()
     return ''
   endif
 
@@ -41,7 +45,7 @@ function! lightline#lsp#ok() abort
 endfunction
 
 function! lightline#lsp#error() abort
-  if lsp#get_server_status() == '' || ! s:error_enabled
+  if !s:vim_lsp_enabled_on_buffer() || ! s:error_enabled
     return ''
   endif
 
@@ -54,7 +58,7 @@ function! lightline#lsp#error() abort
 endfunction
 
 function! lightline#lsp#warning() abort
-  if lsp#get_server_status() == '' || ! s:warning_enabled
+  if !s:vim_lsp_enabled_on_buffer() || ! s:warning_enabled
     return ''
   endif
 
@@ -67,7 +71,7 @@ function! lightline#lsp#warning() abort
 endfunction
 
 function! lightline#lsp#information() abort
-  if lsp#get_server_status() == '' || ! s:information_enabled
+  if !s:vim_lsp_enabled_on_buffer() || ! s:information_enabled
     return ''
   endif
 
@@ -80,7 +84,7 @@ function! lightline#lsp#information() abort
 endfunction
 
 function! lightline#lsp#hint() abort
-  if lsp#get_server_status() == '' || ! s:hint_enabled
+  if !s:vim_lsp_enabled_on_buffer() || ! s:hint_enabled
     return ''
   endif
 
